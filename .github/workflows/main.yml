@@ -31,10 +31,10 @@ jobs:
         uses: actions/setup-java@main
         with:
           distribution: 'zulu'
-          java-version: '11'
+          java-version: '17'
 
       - name: Setup Haxe
-        uses: krdlab/setup-haxe@master
+        uses: krdlab/setup-haxe@v1.2.0
         with:
           haxe-version: 4.2.5
 
@@ -51,9 +51,8 @@ jobs:
       - name: Installing Libraries
         run: |
           haxelib setup ~/haxelib
-          haxelib install hxcpp 4.2.1 > /dev/null --quiet
           haxelib install hmm --quiet
-          haxelib run hmm install
+          haxelib run hmm install --quiet
 
       - name: Configure Android
         run: |
