@@ -54,8 +54,10 @@
     },
     {
       "name": "SScript",
-      "type": "haxelib",
-      "version": "8.1.6"
+      "type": "git",
+      "dir": null,
+      "ref": "main",
+      "url": "https://github.com/idkwhoiam381/SScript-8.1.6"
     },
     {
       "name": "hxcpp-debug-server",
@@ -74,7 +76,7 @@
       "type": "git",
       "dir": null,
       "ref": "master",
-      "url": "https://github.com/Sirox228/linc_luajit"
+      "url": "https://github.com/Moxie-Stuff/linc_luajit"
     }
   ]
 }
