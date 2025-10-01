@@ -12,7 +12,7 @@ class GalleryShitState extends MusicBeatState
   var curSelected:Int = 0;
 
   var shit:Array<String> = ['Week', 'Cum'];
-  var diffNames:Array<String> = ['Easy','Normal','Hard'];
+  var diffNames:Array<String> = ['easy','normal','hard'];
   var songs Array<String> = [
 	  ['pico', 'philly-nice', 'blammed']
   ];
@@ -90,7 +90,28 @@ class GalleryShitState extends MusicBeatState
 
 	function doShit()
 	{
-		
+	PlayState.storyPlaylist = songs[curSelected];
+	PlayState.isStoryMode = true;
+	PlayState.songMultiplier = 1;
+
+	PlayState.isSM = false;
+	var diffic = "";
+
+	switch (diffi)
+	{
+    	case 1:
+        	diffic = "-hard";
+	}
+
+	Debug.logTrace("loadIn");
+
+	PlayState.storyDifficulty = diffi;
+	PlayState.SONG = Song.conversionChecks(Song.loadFromJson(PlayState.storyPlaylist[0], diffic));
+	PlayState.storyWeek = curSelected;
+	new FlxTimer().start(1, function(tmr:FlxTimer)
+	{
+    	LoadingState.loadAndSwitchState(new PlayState(), true);
+	 });
 	}
 
   function changeItem(huh:Int = 0)
