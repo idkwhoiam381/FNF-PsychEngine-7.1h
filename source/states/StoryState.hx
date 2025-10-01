@@ -35,6 +35,11 @@ class GalleryShitState extends MusicBeatState
     menuItems = new FlxTypedGroup<FlxSprite>();
     add(menuItems);
 
+	diffName = new FlxText(0, 0, 0, diffNames[0], 32);
+	diffName.antialiasing = FlxG.save.data.antialiasing;
+	diffName.font = Paths.font("vcr.ttf");
+	add(diffName);
+
     var tex = Paths.getSparrowAtlas('Some/StoryStuff/items');
 
     for (i in 0...shit.length)
@@ -92,6 +97,8 @@ class GalleryShitState extends MusicBeatState
 			diffi = diffNames.length - 1;
 		if (diffi > diffNames.length - 1)
 			diffi = 0;
+		diffName.text = diffNames[diffi];
+		//Debug.logTrace(diffi);
 	}
 
 	function doShit()
@@ -109,7 +116,7 @@ class GalleryShitState extends MusicBeatState
         	diffic = "-hard";
 	}
 
-	Debug.logTrace("loadIn");
+	Debug.logTrace("loadIn" + diffic);
 
 	PlayState.storyDifficulty = diffi;
 	PlayState.SONG = Song.conversionChecks(Song.loadFromJson(PlayState.storyPlaylist[0], diffic));
