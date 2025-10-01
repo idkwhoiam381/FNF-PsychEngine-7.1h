@@ -12,6 +12,10 @@ class GalleryShitState extends MusicBeatState
   var curSelected:Int = 0;
 
   var shit:Array<String> = ['Week', 'Cum'];
+  var diffNames:Array<String> = ['Easy','Normal','Hard'];
+  var songs Array<String> = [
+	  ['pico', 'philly-nice', 'blammed']
+  ];
 
   var menuItems:FlxTypedGroup<FlxSprite>;
 
@@ -24,8 +28,8 @@ class GalleryShitState extends MusicBeatState
     coolbackdrop = new FlxBackdrop(0.0).loadGraphic(Paths.image("Some/StoryStuff/FlxBackdroplol"));
     coolbackdrop.velocity.set(50.50);
     coolbackdrop.screenCenter(Y);
-		coolbackdrop.alpha = 0.25;
-		coolbackdrop.blend = BlendMode.MULTIPLY;
+	coolbackdrop.alpha = 0.25;
+	coolbackdrop.blend = BlendMode.MULTIPLY;
     add(coolbackdrop);
 
     menuItems = new FlxTypedGroup<FlxSprite>();
@@ -37,7 +41,6 @@ class GalleryShitState extends MusicBeatState
     {
         var menuItem FlxSprite = new FlxSprite(0, 0);
         menuItem.frames = tex;
-        menuItem.scale.set(0.5, 0.5);
         menuItem.animation.addByPrefix('idle', shit[i] + " idle", 24);
         menuItem.animation.addByPrefix('selected', shit[i] + " sel", 24);
         menuItem.animation.play('idle');
@@ -71,8 +74,24 @@ class GalleryShitState extends MusicBeatState
 		changeItem(-1);
 	if (controls.DOWN_P)
 		changeItem(1);
+	    doShit();
     super.update(elapsed);
   }
+
+	function changeDiff(huh:Int)
+	{
+		diffi += huh;
+
+		if (diffi < 0)
+			diffi = diffNames.length - 1;
+		if (diffi > diffNames.length - 1)
+			diffi = 0;
+	}
+
+	function doShit()
+	{
+		
+	}
 
   function changeItem(huh:Int = 0)
 {
