@@ -33,13 +33,13 @@ class GalleryShitState extends MusicBeatState
 
     var tex = Paths.getSparrowAtlas('Some/StoryStuff/items');
 
-    for (i in 0...optionShit.length)
+    for (i in 0...shit.length)
     {
         var menuItem FlxSprite = new FlxSprite(0, 0);
         menuItem.frames = tex;
         menuItem.scale.set(0.5, 0.5);
-        menuItem.animation.addByPrefix('idle', optionShit[i] + " idle", 24);
-        menuItem.animation.addByPrefix('selected', optionShit[i] + " sel", 24);
+        menuItem.animation.addByPrefix('idle', shit[i] + " idle", 24);
+        menuItem.animation.addByPrefix('selected', shit[i] + " sel", 24);
         menuItem.animation.play('idle');
         menuItem.ID = i;
         menuItem.updateHitbox();
@@ -96,7 +96,6 @@ class GalleryShitState extends MusicBeatState
             {
                 add = menuItems.length * 8;
             }
-            camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y - add);
             spr.centerOffsets();
         }
     });
