@@ -74,7 +74,13 @@ class GalleryShitState extends MusicBeatState
 		changeItem(-1);
 	if (controls.DOWN_P)
 		changeItem(1);
+	if (controls.LEFT_P)
+		changeDiff(-1);
+	if (controls.RIGHT_P)
+		changeDiff(1);
+	if (controls.ACCEPT)
 	    doShit();
+
     super.update(elapsed);
   }
 
@@ -89,7 +95,7 @@ class GalleryShitState extends MusicBeatState
 	}
 
 	function doShit()
-	{
+{
 	PlayState.storyPlaylist = songs[curSelected];
 	PlayState.isStoryMode = true;
 	PlayState.songMultiplier = 1;
@@ -111,8 +117,8 @@ class GalleryShitState extends MusicBeatState
 	new FlxTimer().start(1, function(tmr:FlxTimer)
 	{
     	LoadingState.loadAndSwitchState(new PlayState(), true);
-	 });
-	}
+	});
+}
 
   function changeItem(huh:Int = 0)
 {
