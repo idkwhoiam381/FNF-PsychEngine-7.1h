@@ -9,6 +9,8 @@ class GalleryShitState extends MusicBeatState
   var bg:FlxSprite;
   var coolbackdrop:FlxBackdrop;
 
+  var curSelected:Int = 0;
+
   var shit:Array<String> = ['Week', 'Cum'];
 
   var menuItems:FlxTypedGroup<FlxSprite>;
@@ -54,6 +56,7 @@ class GalleryShitState extends MusicBeatState
         menuItem.antialiasing = FlxG.save.data.antialiasing;
         bg.updateHitbox();
         menuItems.add(menuItem);
+		changeItem();
     }
 
     super.create();
@@ -63,8 +66,38 @@ class GalleryShitState extends MusicBeatState
   {
     if (controls.BACK)
         MusicBeatState.switchState(new MainMenuState());
+
+	if (controls.UP_P)
+		changeItem(-1);
+	if (controls.DOWN_P)
+		changeItem(1);
     super.update(elapsed);
   }
 
-  function changeItem(huh:Int = 0, ?sound:Bool = false)
+  function changeItem(huh:Int = 0)
+{
+    curSelected += huh;
+
+    if (curSelected >= menuItems.length)
+        curSelected = 0;
+    if (curSelected < 0)
+        curSelected = menuItems.length - 1;
+
+    menuItems.forEach(function(spr:FlxSprite)
+    {
+        spr.animation.play('idle');
+        spr.updateHitbox();
+
+        if (spr.ID == curSelected)
+        {
+            spr.animation.play('selected');
+            var add:Float = 0;
+            if (menuItems.length > 4)
+            {
+                add = menuItems.length * 8;
+            }
+            camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y - add);
+            spr.centerOffsets();
+        }
+    });
 }
