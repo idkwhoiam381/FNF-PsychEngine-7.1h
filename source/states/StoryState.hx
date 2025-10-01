@@ -35,7 +35,7 @@ class GalleryShitState extends MusicBeatState
     menuItems = new FlxTypedGroup<FlxSprite>();
     add(menuItems);
 
-	diffName = new FlxText(0, 0, 0, diffNames[0], 32);
+	diffName = new FlxText(0, 400, 0, diffNames[0], 32);
 	diffName.antialiasing = FlxG.save.data.antialiasing;
 	diffName.font = Paths.font("vcr.ttf");
 	add(diffName);
@@ -65,6 +65,7 @@ class GalleryShitState extends MusicBeatState
         bg.updateHitbox();
         menuItems.add(menuItem);
 		changeItem();
+		changeDiff();
     }
 
     super.create();
@@ -89,7 +90,7 @@ class GalleryShitState extends MusicBeatState
     super.update(elapsed);
   }
 
-	function changeDiff(huh:Int)
+	function changeDiff(huh:Int = 0)
 	{
 		diffi += huh;
 
