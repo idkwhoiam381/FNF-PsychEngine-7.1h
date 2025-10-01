@@ -21,6 +21,8 @@ class GalleryShitState extends MusicBeatState
 
   override function create()
   {
+	Paths.clearStoredMemory();
+	Paths.clearUnusedMemory();
     bg = new FlxSprite(0.0).loadGraphic(Paths.image("Some/StoryStuff/Bg"));
     bg.antialiasing = FlxG.save.data.antialiasing;
     add(bg);
@@ -69,6 +71,7 @@ class GalleryShitState extends MusicBeatState
     }
 
     super.create();
+	Paths.clearUnusedMemory();
   }
 
   override function update(elapsed:Float)
@@ -84,7 +87,7 @@ class GalleryShitState extends MusicBeatState
 		changeDiff(-1);
 	if (controls.RIGHT_P)
 		changeDiff(1);
-	if (controls.ACCEPT)
+	if (controls.ACCEPT && shit[curSelected] = 'Cum')
 	    doShit();
 
     super.update(elapsed);
