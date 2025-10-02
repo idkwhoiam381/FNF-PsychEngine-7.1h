@@ -4,7 +4,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxBackdrop;
 
-class GalleryShitState extends MusicBeatState
+class StoryState extends MusicBeatState
 {
   var bg:FlxSprite;
   var coolbackdrop:FlxBackdrop;
