@@ -13,11 +13,7 @@ class StoryState extends MusicBeatState
 
   var shit:Array<String> = ['Week', 'Cum'];
   var diffNames:Array<String> = ['easy','normal','hard'];
-  var songs Array<String> = [
-	  'pico', 
-	  'philly-nice', 
-	  'blammed'
-  ];
+  var songs Array<String> = ['pico', 'philly-nice', 'blammed'];
 
   var menuItems:FlxTypedGroup<FlxSprite>;
 
@@ -25,6 +21,7 @@ class StoryState extends MusicBeatState
   {
 	Paths.clearStoredMemory();
 	Paths.clearUnusedMemory();
+
     bg = new FlxSprite(0.0).loadGraphic(Paths.image("Some/StoryStuff/Bg"));
     bg.antialiasing = FlxG.save.data.antialiasing;
     add(bg);
