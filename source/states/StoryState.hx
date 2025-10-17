@@ -14,7 +14,9 @@ class StoryState extends MusicBeatState
   var shit:Array<String> = ['Week', 'Cum'];
   var diffNames:Array<String> = ['easy','normal','hard'];
   var songs Array<String> = [
-	  ['pico', 'philly-nice', 'blammed']
+	  'pico', 
+	  'philly-nice', 
+	  'blammed'
   ];
 
   var menuItems:FlxTypedGroup<FlxSprite>;
