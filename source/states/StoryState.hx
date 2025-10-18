@@ -45,7 +45,7 @@ class StoryState extends MusicBeatState
 
     for (i in 0...shit.length)
     {
-        var menuItem FlxSprite = new FlxSprite(0, 0);
+        var menuItem:FlxSprite = new FlxSprite(0, 0);
         menuItem.frames = tex;
         menuItem.animation.addByPrefix('idle', shit[i] + " idle", 24);
         menuItem.animation.addByPrefix('selected', shit[i] + " sel", 24);
