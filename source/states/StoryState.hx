@@ -161,3 +161,4 @@ class StoryState extends MusicBeatState
         }
     });
 }
+}
