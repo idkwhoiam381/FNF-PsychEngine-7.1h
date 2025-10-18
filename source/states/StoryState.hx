@@ -13,7 +13,7 @@ class StoryState extends MusicBeatState
 
   var shit:Array<String> = ['Week', 'Cum'];
   var diffNames:Array<String> = ['easy','normal','hard'];
-  var songs Array<String> = ['pico', 'philly-nice', 'blammed'];
+  var songs:Array<String> = ['pico', 'philly-nice', 'blammed'];
 
   var menuItems:FlxTypedGroup<FlxSprite>;
 
@@ -70,6 +70,11 @@ class StoryState extends MusicBeatState
     }
 
     super.create();
+
+	  #if mobile
+    addVirtualPad(FULL, A_B);
+    #end
+
 	Paths.clearUnusedMemory();
   }
 
