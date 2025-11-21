@@ -86,6 +86,13 @@ class VisualsUISubState extends BaseOptionsMenu
 			'hideHud',
 			'bool');
 		addOption(option);
+
+		var option:Option = new Option('Judgement Counter',
+			'If enabled, it will show you how much sicks and shits you hit.',
+			'judgementCounter',
+			'bool',
+			false);
+		addOption(option);
 		
 		var option:Option = new Option('Time Bar:',
 			"What should the Time Bar display?",
